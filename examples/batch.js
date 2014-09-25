@@ -52,7 +52,7 @@ internals.requestBatch = function (request, reply) {
     internals.http.inject({
         method: 'POST',
         url: '/batch',
-        payload: '{ "requests": [{ "method": "get", "path": "/profile" }, { "method": "get", "path": "/item" }, { "method": "get", "path": "/item/$1.id;resultsData.results[3]=batchRequest.mime" }] }'
+        payload: '{ "requests": [{ "method": "get", "path": "/profile" }, { "method": "get", "path": "/item" }, { "method": "get", "path": "/item/$1.id;var keys=[];for(var k in batchRequest) keys.push(k);resultsData.results[3]=keys" }] }'
     }, function (res) {
 
         reply(res.result);
